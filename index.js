@@ -17,7 +17,7 @@ window.addEventListener("load", async () => {
   const templateAuctions = await loadHtml("./pages/auctions/auctions.html")
   const templateArtists = await loadHtml("./pages/artists/artists.html")
   const templateLogin = await loadHtml("./pages/login/login.html")
-  const templateAddAuction = await loadHtml("./pages/addAuction/addAuction.ntml")
+  const templateAddAuction = await loadHtml("./pages/addAuction/addAuction.html")
  
  
 
