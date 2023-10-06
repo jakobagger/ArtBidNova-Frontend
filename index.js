@@ -6,11 +6,19 @@ import {
   setActiveLink, loadHtml, renderHtml} from "./utils.js"
 
 import { initArtworks } from "./pages/artworks/artworks.js"
-
+import { initArtists } from "./pages/artists/artists.js";
+import { initAuctions } from "./pages/auctions/auctions.js";
+import { initLogin } from "./pages/login/login.js";
+import { initaddAuction } from "./pages/addAuction/addAuction.js";
 
 window.addEventListener("load", async () => {
 
   const templateArtworks = await loadHtml("./pages/artworks/artworks.html")
+  const templateAuctions = await loadHtml("./pages/auctions/auctions.html")
+  const templateArtists = await loadHtml("./pages/artists/artists.html")
+  const templateLogin = await loadHtml("./pages/login/login.html")
+  const templateAddAuction = await loadHtml("./pages/addAuction/addAuction.ntml")
+ 
  
 
  const router = new Navigo("/", { hash: true });
@@ -33,18 +41,18 @@ window.addEventListener("load", async () => {
           ARTBID (WE DO NOT SUPPORT THE CHINESE GOVERNMENT, pls don't sue)<span style='font-size:2em;'>&#128516;</span>
         </p>
      `,
-      "/cars": () => {
-        renderHtml(templateCars, "content")
-        initCars()
+      "/artists": () => {
+        renderHtml(templateArtists, "content")
+        initArtists()
       },
-      "/find-edit-car": (match) => {
-        renderHtml(templateFindEditCar, "content")
-        initFindEditCar(match)
+      "/auctions": (match) => {
+        renderHtml(templateAuctions, "content")
+        initAuctions()
       },
-      "/add-car": (match) => {
-        renderHtml(templateAddCar, "content")
-        initAddCar()
-      },
+      // "/login": (match) => {
+      //   renderHtml(templateAddCar, "content")
+      //   initLogin()
+      // },
       "/members": () => {
         renderHtml(templateMembers, "content")
         initMembers()
@@ -53,9 +61,9 @@ window.addEventListener("load", async () => {
         renderHtml(templateArtworks, "content")
         initArtworks()
       },
-      "/reservations": () => {
-        renderHtml(templateReservations, "content")
-        initListReservationsAll()
+      "/addAuction": (match) => {
+        renderHtml(templateAddAuction, "content")
+        initaddAuction(match)
       },
       "/signup": () => {
         renderHtml(templateSignup, "content")
