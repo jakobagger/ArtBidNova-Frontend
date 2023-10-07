@@ -38,14 +38,14 @@ window.addEventListener("load", async () => {
         <h2>Home</h2>
         <img style="width:50%;max-width:150px;margin-top:1em;" src="tbd">
         <p style='margin-top:1em;font-size: 1.5em;color:darkgray;'>
-          ARTBID (WE DO NOT SUPPORT THE CHINESE GOVERNMENT, pls don't sue)<span style='font-size:2em;'>&#128516;</span>
+          ARTBID<span style='font-size:2em;'>&#128516;</span>
         </p>
      `,
       "/artists": () => {
         renderHtml(templateArtists, "content")
         initArtists()
       },
-      "/auctions": (match) => {
+      "/auctions": () => {
         renderHtml(templateAuctions, "content")
         initAuctions()
       },
@@ -75,7 +75,7 @@ window.addEventListener("load", async () => {
       }
     })
     .notFound(() => {
-      // renderHtml(templateNotFound, "content")
+      renderHtml(templateNotFound, "content")
       console.log("not found")
     })
     .resolve()

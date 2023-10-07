@@ -1,5 +1,5 @@
 import { API_URL } from "../../settings.js";
-const URL = API_URL + "/artworks";
+const URL = API_URL + "/artwork";
 
 import { sanitizeStringWithTableRows } from "../../utils.js";
 
