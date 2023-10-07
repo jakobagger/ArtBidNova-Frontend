@@ -10,6 +10,7 @@ import { initArtists } from "./pages/artists/artists.js"
 import { initAuctions } from "./pages/auctions/auctions.js"
 import { initLogin } from "./pages/login/login.js"
 import { initaddAuction } from "./pages/addAuction/addAuction.js"
+import { initSignup } from "./pages/signup/signup.js"
 
 window.addEventListener("load", async () => {
 
@@ -19,6 +20,7 @@ window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html")
   const templateAddAuction = await loadHtml("./pages/addAuction/addAuction.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
+  const templateSignup = await loadHtml("./pages/signup/signup.html")
  
  
 
@@ -54,10 +56,10 @@ window.addEventListener("load", async () => {
       //   renderHtml(templateAddCar, "content")
       //   initLogin()
       // },
-      "/members": () => {
-        renderHtml(templateMembers, "content")
-        initMembers()
-      },
+      // "/members": () => {
+      //   renderHtml(templateMembers, "content")
+      //   initMembers()
+      // },
       "/artworks": () => {
         renderHtml(templateArtworks, "content")
         initArtworks()
@@ -77,17 +79,9 @@ window.addEventListener("load", async () => {
     })
     .notFound(() => {
       renderHtml(templateNotFound, "content")
-      console.log("not found")
     })
     .resolve()
 });
-
-
-function toggleMao() {
-  document.querySelector("#user-menu-dropdown").classList.toggle("hidden")
-}
-
-document.querySelector("#user-menu-button").addEventListener("click",toggleMao)
 
 window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
   alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber
