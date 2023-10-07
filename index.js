@@ -6,10 +6,10 @@ import {
   setActiveLink, loadHtml, renderHtml} from "./utils.js"
 
 import { initArtworks } from "./pages/artworks/artworks.js"
-import { initArtists } from "./pages/artists/artists.js";
-import { initAuctions } from "./pages/auctions/auctions.js";
-import { initLogin } from "./pages/login/login.js";
-import { initaddAuction } from "./pages/addAuction/addAuction.js";
+import { initArtists } from "./pages/artists/artists.js"
+import { initAuctions } from "./pages/auctions/auctions.js"
+import { initLogin } from "./pages/login/login.js"
+import { initaddAuction } from "./pages/addAuction/addAuction.js"
 
 window.addEventListener("load", async () => {
 
@@ -18,6 +18,7 @@ window.addEventListener("load", async () => {
   const templateArtists = await loadHtml("./pages/artists/artists.html")
   const templateLogin = await loadHtml("./pages/login/login.html")
   const templateAddAuction = await loadHtml("./pages/addAuction/addAuction.html")
+  const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
  
  
 
@@ -34,7 +35,7 @@ window.addEventListener("load", async () => {
     })
     .on({
       //For very simple "templates", you can just insert your HTML directly like below
-      "*": () => document.getElementById("content").innerHTML = `
+      "/": () => document.getElementById("content").innerHTML = `
         <h2>Home</h2>
         <img style="width:50%;max-width:150px;margin-top:1em;" src="tbd">
         <p style='margin-top:1em;font-size: 1.5em;color:darkgray;'>
