@@ -1,0 +1,29 @@
+<div class="template">
+    <h2>Add Artwork</h2>
+    <form id="art-form">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description">
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price">
+            <label for="for-sale">For Sale</label>
+            <input type="checkbox" id="for-sale" name="forSale">
+
+            <label for="image">Select image(s) to include.</label><br>
+            <input class="form-control" id="image" name="image" type="file"
+                accept="image/png, image/jpeg" placeholder="..." multiple required>
+
+            <label for="username">Artist Name</label>
+            <input type="text" id="username" name="username">
+    </form>
+    <div>
+        <button id="add-art-btn">Submit</button>
+    </div>
+
+    <p id="result"></p>
+    <p id="error" style="color: red"></p>
+
+</div>
