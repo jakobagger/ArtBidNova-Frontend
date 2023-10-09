@@ -11,7 +11,8 @@ import { initAuctions } from "./pages/auctions/auctions.js"
 import { initLogin } from "./pages/login/login.js"
 import { initaddAuction } from "./pages/addAuction/addAuction.js"
 import { initSignup } from "./pages/signup/signup.js"
-
+import { initaddArtwork } from "./pages/addArtwork/addArtwork.js"
+import { initFindArtwork } from "./pages/findArtwork/findArtwork.js"
 window.addEventListener("load", async () => {
 
   const templateArtworks = await loadHtml("./pages/artworks/artworks.html")
@@ -21,6 +22,8 @@ window.addEventListener("load", async () => {
   const templateAddAuction = await loadHtml("./pages/addAuction/addAuction.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
+  const templateAddArtwork = await loadHtml("./pages/addArtwork/addArtwork.html")
+  const templateFindArtwork = await loadHtml("./pages/findArtwork/findArtwork.html")
  
  
 
@@ -39,7 +42,7 @@ window.addEventListener("load", async () => {
       //For very simple "templates", you can just insert your HTML directly like below
       "/": () => document.getElementById("content").innerHTML = `
         <h2>Home</h2>
-        <img style="width:50%;max-width:150px;margin-top:1em;" src="tbd">
+        <img style="width:50%;max-width:150px;margin-top:1em;" src="./images/profile-image/MaoZedong.jpg">
         <p style='margin-top:1em;font-size: 1.5em;color:darkgray;'>
           ARTBID<span style='font-size:2em;'>&#128516;</span>
         </p>
@@ -52,10 +55,14 @@ window.addEventListener("load", async () => {
         renderHtml(templateAuctions, "content")
         initAuctions()
       },
-      // "/login": (match) => {
-      //   renderHtml(templateAddCar, "content")
-      //   initLogin()
-      // },
+      "/addArtwork": (match) => {
+        renderHtml(templateAddArtwork, "content")
+        initaddArtwork()
+      },
+      "/findArtwork": () =>{
+        renderHtml(templateFindArtwork, "content")
+        initFindArtwork()
+      },
       // "/members": () => {
       //   renderHtml(templateMembers, "content")
       //   initMembers()
