@@ -12,6 +12,7 @@ import { initLogin } from "./pages/login/login.js"
 import { initaddAuction } from "./pages/addAuction/addAuction.js"
 import { initSignup } from "./pages/signup/signup.js"
 import { initaddArtwork } from "./pages/addArtwork/addArtwork.js"
+import { initFindArtwork } from "./pages/findArtwork/findArtwork.js"
 window.addEventListener("load", async () => {
 
   const templateArtworks = await loadHtml("./pages/artworks/artworks.html")
@@ -22,6 +23,7 @@ window.addEventListener("load", async () => {
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateAddArtwork = await loadHtml("./pages/addArtwork/addArtwork.html")
+  const templateFindArtwork = await loadHtml("./pages/findArtwork/findArtwork.html")
  
  
 
@@ -56,6 +58,10 @@ window.addEventListener("load", async () => {
       "/addArtwork": (match) => {
         renderHtml(templateAddArtwork, "content")
         initaddArtwork()
+      },
+      "/findArtwork": () =>{
+        renderHtml(templateFindArtwork, "content")
+        initFindArtwork()
       },
       // "/members": () => {
       //   renderHtml(templateMembers, "content")
