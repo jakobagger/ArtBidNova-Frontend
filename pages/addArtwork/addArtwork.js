@@ -62,4 +62,5 @@ async function addArtwork() {
         } catch (e) {
           document.getElementById("error").innerText = e.message;
         }
+        
       };
