@@ -13,6 +13,8 @@ import { initaddAuction } from "./pages/addAuction/addAuction.js"
 import { initSignup } from "./pages/signup/signup.js"
 import { initaddArtwork } from "./pages/addArtwork/addArtwork.js"
 import { initFindArtwork } from "./pages/findArtwork/findArtwork.js"
+import { initEditArtwork } from "./pages/editArtwork/editArtwork.js"
+
 window.addEventListener("load", async () => {
 
   const templateArtworks = await loadHtml("./pages/artworks/artworks.html")
@@ -24,6 +26,7 @@ window.addEventListener("load", async () => {
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateAddArtwork = await loadHtml("./pages/addArtwork/addArtwork.html")
   const templateFindArtwork = await loadHtml("./pages/findArtwork/findArtwork.html")
+  const templateEditArtwork = await loadHtml("./pages/editArtwork/editArtwork.html")
  
  
 
@@ -62,6 +65,10 @@ window.addEventListener("load", async () => {
       "/findArtwork": () =>{
         renderHtml(templateFindArtwork, "content")
         initFindArtwork()
+      },
+      "/editArtwork": () => {
+        renderHtml(templateEditArtwork, "content")
+        initEditArtwork()
       },
       // "/members": () => {
       //   renderHtml(templateMembers, "content")
