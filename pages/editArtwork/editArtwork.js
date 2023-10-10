@@ -1,15 +1,15 @@
 import { API_URL } from "../../settings.js";
 import { sanitizeStringWithTableRows } from "../../utils.js";
+import { findArtwork } from "../findArtwork/findArtwork.js";
 const URL = API_URL + "/artwork";
 
 
 export async function initEditArtwork() {
     document.querySelector("#btn-id").addEventListener("click", async () => {
         
-        const id = document.querySelector("#id").value
-        const artwork = await fetch(URL+"/"+id).then(res=> res.json())
-
-        let image = artwork.images.join(",")
+        // const id = document.querySelector("#id").value
+        // const artwork = await fetch(URL+"/"+id).then(res=> res.json())
+        const artwork = await findArtwork()
 
         document.querySelector("#result").innerHTML = `<form id="Form">
         <div class="mb-3">
@@ -35,7 +35,7 @@ export async function initEditArtwork() {
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image:</label>
-            <input type="text" class="form-control" id="image" name="image" required value="${image}">
+            <input type="text" class="form-control" id="image" name="image" required value="${artwork.image}">
         </div>
     </form>
     <button id="editArtwork">Edit artwork</button>`

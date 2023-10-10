@@ -11,6 +11,7 @@ export async function findArtwork() {
         
    
     const artwork = await fetch (URL+"/"+id).then(res => res.json())
+    
     const tableRows = `
     <tr>
     <td style="display:none">${artwork.artworkId}</td>
@@ -25,5 +26,7 @@ export async function findArtwork() {
     
   
     document.querySelector("#tablerows").innerHTML = sanitizeStringWithTableRows(tableRows)
+
+    return artwork
 
 }
