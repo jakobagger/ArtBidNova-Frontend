@@ -4,6 +4,12 @@
 Styles used for labels and input fields in boot strap columns
 
 */
+body {
+  background-image: url('../images/profile-image/background2.png'); /* Replace 'your-image.jpg' with the path to your image file */
+  background-size: cover; /* This ensures the background image covers the entire viewport */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-attachment: fixed; /* Fix the background image in place */
+}
 
 .row label {
     margin-top: 1.5em;
