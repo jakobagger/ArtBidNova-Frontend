@@ -1,10 +1,9 @@
-<div class="template">
+<!-- 
 
     <h2>Find Specifik Artwork</h2>
     <label for="id">Id</label>&nbsp;<input id="id"/>
     <button id="btn-id">Search</button>
-    
-
+ 
     <table>
         <thead>
             <tr>
@@ -18,9 +17,6 @@
                     Description
                 </th>
                 <th>
-                    Price
-                </th>
-                <th>
                     Is it for sale?
                 </th>
                 <th>
@@ -29,8 +25,29 @@
             </tr>
         </thead>
         <tbody id="tablerows">
-            <!-- Insert tr and td from javascript-->
+         
         </tbody>
     </table>
 
+</div> -->
+
+<div class="template">
+    <h2>Find Specific Artwork</h2>
+    <label for="id">Id</label>&nbsp;<input id="id" />
+    <button id="btn-id" class="btn btn-dark">Search</button>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Is it for sale?</th>
+            </tr>
+        </thead>
+        <tbody id="tablerows">
+            <!-- Insert tr and td from JavaScript -->
+        </tbody>
+    </table>
 </div>

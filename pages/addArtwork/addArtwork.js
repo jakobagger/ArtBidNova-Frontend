@@ -38,7 +38,6 @@ async function addArtwork() {
           title: form.title.value,
           category: form.category.value,
           description: form.description.value,
-          price: parseInt(form.price.value),
           forSale: form.forSale.checked,
           image: image,
           username: form.username.value

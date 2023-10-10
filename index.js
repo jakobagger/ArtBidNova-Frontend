@@ -44,7 +44,7 @@ window.addEventListener("load", async () => {
         <h2>Home</h2>
         <img style="width:50%;max-width:150px;margin-top:1em;" src="./images/profile-image/MaoZedong.jpg">
         <p style='margin-top:1em;font-size: 1.5em;color:darkgray;'>
-          ARTBID<span style='font-size:2em;'>&#128516;</span>
+          ARTBID<span style='font-size:2em;'></span>
         </p>
      `,
       "/artists": () => {
