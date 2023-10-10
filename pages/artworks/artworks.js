@@ -9,12 +9,11 @@ export async function initArtworks() {
 
     const tableRows = artworks.map(artwork => `
     <tr>
+    <td>${artwork.image}</td>
     <td>${artwork.title}</td>
     <td>${artwork.description}</td>
     <td>${artwork.category}</td>
-    <td>${artwork.price}</td>
     <td>${artwork.forSale}</td>
-    <td>${artwork.image}</td>
     </tr>
     `)
 
