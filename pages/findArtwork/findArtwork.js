@@ -2,16 +2,29 @@ import { API_URL } from "../../settings.js";
 import { sanitizeStringWithTableRows } from "../../utils.js";
 const URL = API_URL + "/artwork";
 
-export async function initFindArtwork() {
-    document.querySelector("#btn-id").addEventListener("click", findArtwork);
+export async function initFindArtwork(match) {
+
+    if(match?.params?.id) {
+        const id = match.params.id
+        document.querySelector("#tablerows").innerHTML = ""
+        fetchAndRenderArtwork(id)
+    }
+    
 }
 
-export async function findArtwork() {
-        const id = document.querySelector("#id").value
+const navigoRoute = "find-artwork"
+async function getArtwork(event) {
+    event.preventDefault()
+    fetchAndRenderArtwork()
+}
+export async function fetchAndRenderArtwork(idFromURL) {
         
-   
-    const artwork = await fetch (URL+"/"+id).then(res => res.json())
     
+    const id = idFromURL ? idFromURL : document.querySelector("#id").value
+        
+   try {
+    const artwork = await fetch (URL+"/"+id).then(res => res.json())
+   
     const tableRows = `
     <tr>
     <td style="display:none">${artwork.artworkId}</td>
@@ -23,9 +36,12 @@ export async function findArtwork() {
     </tr>
     `;
     
-  
+
     document.querySelector("#tablerows").innerHTML = sanitizeStringWithTableRows(tableRows)
 
     return artwork
+   } catch (e) {
+    console.log("Something fucked up. Good luck")
+   }
 
 }

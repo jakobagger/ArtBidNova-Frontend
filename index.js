@@ -13,7 +13,7 @@ import { initaddAuction } from "./pages/addAuction/addAuction.js"
 import { initSignup } from "./pages/signup/signup.js"
 import { initaddArtwork } from "./pages/addArtwork/addArtwork.js"
 import { initFindArtwork } from "./pages/findArtwork/findArtwork.js"
-import { initEditArtwork } from "./pages/editArtwork/editArtwork.js"
+// import { initEditArtwork } from "./pages/editArtwork/editArtwork.js"
 
 window.addEventListener("load", async () => {
 
@@ -26,7 +26,7 @@ window.addEventListener("load", async () => {
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateAddArtwork = await loadHtml("./pages/addArtwork/addArtwork.html")
   const templateFindArtwork = await loadHtml("./pages/findArtwork/findArtwork.html")
-  const templateEditArtwork = await loadHtml("./pages/editArtwork/editArtwork.html")
+  // const templateEditArtwork = await loadHtml("./pages/editArtwork/editArtwork.html")
  
  
 
@@ -58,18 +58,18 @@ window.addEventListener("load", async () => {
         renderHtml(templateAuctions, "content")
         initAuctions()
       },
-      "/addArtwork": (match) => {
+      "/addArtwork": () => {
         renderHtml(templateAddArtwork, "content")
         initaddArtwork()
       },
-      "/findArtwork": () =>{
+      "/find-artwork": (match) =>{
         renderHtml(templateFindArtwork, "content")
-        initFindArtwork()
+        initFindArtwork(match)
       },
-      "/editArtwork": () => {
-        renderHtml(templateEditArtwork, "content")
-        initEditArtwork()
-      },
+      // "/editArtwork": () => {
+      //   renderHtml(templateEditArtwork, "content")
+      //   initEditArtwork()
+      // },
       // "/members": () => {
       //   renderHtml(templateMembers, "content")
       //   initMembers()
