@@ -40,7 +40,7 @@ async function addArtwork() {
           description: form.description.value,
           price: parseInt(form.price.value),
           forSale: form.forSale.checked,
-          images: image,
+          image: image,
           username: form.username.value
         };
 
