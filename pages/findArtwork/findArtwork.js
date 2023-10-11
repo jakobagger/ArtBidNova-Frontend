@@ -16,7 +16,6 @@ export async function initFindArtwork(match) {
     
 }
 
-const navigoRoute = "find-artwork"
 async function getArtwork(event) {
     event.preventDefault()
     fetchAndRenderArtwork()
