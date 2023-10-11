@@ -6,6 +6,8 @@ import { sanitizeStringWithTableRows } from "../../utils.js";
 
 export async function initArtworks() {
 
+    document.querySelector("#search-btn").addEventListener("click", findByCategory);
+
     document.querySelector("#tablerows").onclick = showArtworkDetails
     getAndRenderArtworks()
 }
@@ -42,4 +44,26 @@ async function showArtworkDetails(event) {
       const id = target.id.replace("image_", "")
       // @ts-ignore
       window.router.navigate("find-artwork?id=" + id)
+}
+
+async function findByCategory() {
+    // Get the selected category from the dropdown
+    const dropdown = document.getElementById("dropdown");
+    const selectedCategory = dropdown.value;
+
+    try {
+        // Fetch artworks from the server
+        const artworks = await fetch(URL).then((res) => res.json());
+
+        // Filter artworks by the selected category
+        const filteredArtworks = artworks.filter((artwork) => 
+            artwork.category.toLowerCase() === selectedCategory.toLowerCase());
+        console.log(JSON.stringify(artworks))
+        console.log(JSON.stringify(filteredArtworks))
+        document.querySelector("#tablerows").innerHTML = ("")
+        // Render the filtered data
+        renderArtworkData(filteredArtworks);
+    } catch (e) {
+        console.log("Error fetching artworks: " + e);
+    }
 }
