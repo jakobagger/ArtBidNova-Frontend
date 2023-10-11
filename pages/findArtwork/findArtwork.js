@@ -4,6 +4,10 @@ const URL = API_URL + "/artwork";
 
 export async function initFindArtwork(match) {
 
+    document.querySelector("#tablerows").innerHTML = ""
+
+    document.querySelector("#btn-id").addEventListener("click", getArtwork)
+
     if(match?.params?.id) {
         const id = match.params.id
         document.querySelector("#tablerows").innerHTML = ""
@@ -27,12 +31,10 @@ export async function fetchAndRenderArtwork(idFromURL) {
    
     const tableRows = `
     <tr>
-    <td style="display:none">${artwork.artworkId}</td>
-    <td>${artwork.title}</td>
+    <td><img class="art-image" id="image_${artwork.artworkId}" src="${artwork.image}"/></td>    <td>${artwork.title}</td>
     <td>${artwork.description}</td>
     <td>${artwork.category}</td>
     <td>${artwork.forSale}</td>
-    <td>${artwork.image}</td>
     </tr>
     `;
     

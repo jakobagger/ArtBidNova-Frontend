@@ -21,9 +21,7 @@ async function getAndRenderArtworks() {
 function renderArtworkData(data) {
     const tableRows = data.map(artwork => `
     <tr>
-    <td>
-    <button id="row-btn_${artwork.artworkId}"  type="button"  class="btn btn-sm btn-secondary">Details</button> </td>   
-    <td><img class="art-image" src="${artwork.image}"/></td>
+    <td><img class="art-image" id="image_${artwork.artworkId}" src="${artwork.image}"/></td>
     <td>${artwork.title}</td>
     <td>${artwork.description}</td>
     <td>${artwork.category}</td>
@@ -38,10 +36,10 @@ function renderArtworkData(data) {
 
 async function showArtworkDetails(event) {
     const target = event.target
-    if (!target.id.startsWith("row-btn_")) {
+    if (!target.id.startsWith("image_")) {
         return
       }
-      const id = target.id.replace("row-btn_", "")
+      const id = target.id.replace("image_", "")
       // @ts-ignore
       window.router.navigate("find-artwork?id=" + id)
 }
