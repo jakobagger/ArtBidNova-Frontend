@@ -58,13 +58,9 @@ async function addArtwork() {
             }
             return res.json();
           });
-
-          document.querySelector("#result").innerText = JSON.stringify(
-            artwork,
-            null,
-            3
-          );
+          
         } catch (e) {
           document.getElementById("error").innerText = e.message;
         }
+        
       };

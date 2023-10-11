@@ -58,13 +58,13 @@ window.addEventListener("load", async () => {
         renderHtml(templateAuctions, "content")
         initAuctions()
       },
-      "/addArtwork": (match) => {
+      "/addArtwork": () => {
         renderHtml(templateAddArtwork, "content")
         initaddArtwork()
       },
-      "/findArtwork": () =>{
+      "/find-artwork": (match) =>{
         renderHtml(templateFindArtwork, "content")
-        initFindArtwork()
+        initFindArtwork(match)
       },
       "/editArtwork": () => {
         renderHtml(templateEditArtwork, "content")
