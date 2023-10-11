@@ -1,20 +1,20 @@
-#Node.js related
+# Node.js related
 node_modules/
 
-#IDE related
+# IDE related
 .idea/
 .vscode/
 
-#OS related
+# OS related
 .DS_Store
 Thumbs.db
 
-#Build related
+# Build related
 dist/
 build/
 
-#Log files
+# Log files
 *.log
 
-#Environment variables
+# Environment variables
 .env
