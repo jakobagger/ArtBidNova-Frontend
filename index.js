@@ -78,9 +78,9 @@ window.addEventListener("load", async () => {
         renderHtml(templateArtworks, "content")
         initArtworks()
       },
-      "/addAuction": (match) => {
+      "/addAuction": () => {
         renderHtml(templateAddAuction, "content")
-        initaddAuction(match)
+        initaddAuction()
       },
       "/signup": () => {
         renderHtml(templateSignup, "content")

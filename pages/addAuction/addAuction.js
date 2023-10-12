@@ -1,18 +1,20 @@
 import { API_URL } from "../../settings.js";
 import { sanitizeStringWithTableRows } from "../../utils.js";
+const URL = API_URL+"/auctions"
 
 export async function initaddAuction() {
     document.querySelector("#add-auction-btn").addEventListener("click", addAuction);
 }
 
 async function addAuction() {
+    event.preventDefault()
     const form = document.querySelector("#auction-form");
           const newAuction = {
-            artworkId: form.artwork-id.value,
-            startDate: form.start-date.value,
-            endDate: form.end-date.value,
-            startBid: form.start-bid.value,
-            minimumIncrement: form.minimum-increment.value
+            artworkId: form.artworkId.value,
+            startDate: form.startDate.value,
+            endDate: form.endDate.value,
+            startBid: form.startBid.value,
+            minimumIncrement: form.minimumIncrement.value
           };
   
           const options = {
