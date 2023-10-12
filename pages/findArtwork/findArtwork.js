@@ -10,7 +10,7 @@ export async function initFindArtwork(match) {
 
     document.querySelector("#get-reviews").addEventListener("click", fetchAndRenderReviews)
 
-    document.querySelector("#search-form").addEventListener("submit", searchArtwork)
+    // document.querySelector("#search-form").addEventListener("submit", searchArtwork)
 
     if(match?.params?.id) {
         const id = match.params.id
@@ -22,12 +22,12 @@ export async function initFindArtwork(match) {
     }
 }
 
-async function searchArtwork(event) {
-    event.preventDefault()
-    const searchParams = new URLSearchParams(window.location.search)
-    searchParams.set("id", event.target.idValue.value)
-    window.router.navigate("/find-artwork"+"?" + searchParams.toString())
-}
+// async function searchArtwork(event) {
+//     event.preventDefault()
+//     const searchParams = new URLSearchParams(window.location.search)
+//     searchParams.set("id", event.target.idValue.value)
+//     window.router.navigate("/find-artwork"+"?" + searchParams.toString())
+// }
 
 export async function fetchAndRenderArtwork(idFromURL) {
 
@@ -54,7 +54,17 @@ export async function fetchAndRenderArtwork(idFromURL) {
    }   
 }
 
-async function fetchAndRenderReviews() {
+async function fetchAndRenderReviews(match) {
 
-    const reviews = await fetch(REVIEW_URL + "/")
+    console.log(match.params)
+    const id = match.params.id.value
+    
+    const reviews = await fetch(URL + "/" + id).then(res=>res.json())
+
+    const reviewsRow = reviews.map(review=>`<button type="button class="collapsible">${review.rating} From ${review.username}</button>
+    <div class="review-content">${review.description}</div>
+    `)
+
+    document.querySelector("#review-div").innerHTML = sanitizeStringWithTableRows(reviewsRow)
+    
 }
