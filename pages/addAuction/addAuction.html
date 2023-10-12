@@ -1,4 +1,34 @@
 <div class="template">
+    
+    <div class="container">
+        <h2>New auction:</h2>
+        <form action="/auctions/" method="POST" id="auction-form">
+            
+            <div class="form-group">
+                <label for="artwork-id">Artwork ID</label>
+                <input type="text" class="form-control" id="artwork-id" name="artwork-id">
+            </div>
+            <div class="form-group">
+                <label for="start-date">Start Date</label>
+                <input type="date" class="form-control" id="start-date" name="start-date">
+            </div>
+            <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="date" class="form-control" id="end-date" name="end-date">
+            </div>
+            <div class="form-group">
+                <label for="start-bid">Start Bid</label>
+                <input type="text" class="form-control" id="start-bid" name="start-bid">
+            </div>
+            <div class="form-group">
+                <label for="minimum-increment">Minimum Increment</label>
+                <input type="text" class="form-control" id="minimum-increment" name="minimum-increment">
+            </div>
+            <button type="submit" class="btn btn-primary" id="add-auction-btn">Submit</button>
+        </form>
+    </div>
 
+    <p id="result"></p>
+    <p id="error" style="color: red"></p>
     
 </div>
