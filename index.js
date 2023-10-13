@@ -15,6 +15,7 @@ import { initaddArtwork } from "./pages/addArtwork/addArtwork.js"
 import { initEditArtwork } from "./pages/editArtwork/editArtwork.js"
 import { initAddReview } from "./pages/addReview/addReview.js"
 import { initAddBid } from "./pages/addBid/addBid.js"
+import { initFindArtwork } from "./pages/findArtwork/findArtwork.js"
 
 window.addEventListener("load", async () => {
 
@@ -29,6 +30,7 @@ window.addEventListener("load", async () => {
   const templateEditArtwork = await loadHtml("./pages/editArtwork/editArtwork.html")
   const templateAddReview = await loadHtml("./pages/addReview/addReview.html")
   const templateAddBid = await loadHtml("./pages/addBid/addBid.html")
+  const templateFindArtwork = await loadHtml("./pages/findArtwork/findArtwork.html")
  
 
  const router = new Navigo("/", { hash: true });
@@ -94,6 +96,10 @@ window.addEventListener("load", async () => {
       "/add-bid": (match) => {
         renderHtml(templateAddBid, "content")
         initAddBid(match)
+      },
+      "/find-artwork": (match) => {
+        renderHtml(templateFindArtwork, "content")
+        initFindArtwork(match)
       },
     })
     .notFound(() => {
