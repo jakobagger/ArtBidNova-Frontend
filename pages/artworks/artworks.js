@@ -60,7 +60,7 @@ async function findByCategory() {
             artwork.category.toLowerCase() === selectedCategory.toLowerCase());
         console.log(JSON.stringify(artworks))
         console.log(JSON.stringify(filteredArtworks))
-        document.querySelector("#tablerows").innerHTML = ("")
+        document.querySelector("#tbl-body").innerHTML = ("")
         // Render the filtered data
         renderArtworkData(filteredArtworks);
     } catch (e) {

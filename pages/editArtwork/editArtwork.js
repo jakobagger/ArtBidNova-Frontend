@@ -27,7 +27,17 @@ document.querySelector("#result").innerHTML = `
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">Category:</label>
-            <input type="text" class="form-control" id="category" name="category" required value="${artwork.category}">
+            <select class="form-control" id="category" name="category" title="Category"required>
+                <option value="painting">Painting</option>
+                <option value="sculpture">Sculpture</option>
+                <option value="photography">Photography</option>
+                <option value="print">Print</option>
+                <option value="mixedMedia">Mixed Media</option>
+                <option value="ceramic">Ceramic</option>
+                <option value="textileArt">Textile Art</option>
+                <option value="glassArt">Glass Art</option>
+            </select>
+            
         </div>        
         <div class="mb-3">
             <label for="description" class="form-label">Description:</label>
@@ -77,23 +87,19 @@ document.querySelector("#result").innerHTML = `
     const form = document.querySelector("#Form");
     const id = form.querySelector("#id").value;
     const imageFile = document.querySelector("#image").files[0];
-
+    const existingArtwork = await fetch(URL + "/" + id).then(res => res.json());
+    const image = imageFile ? await base64(imageFile) : existingArtwork.image; // Use existing image if no new image is provided.
  
 
     const updatedArtwork = {
         artworkId: form.querySelector("#id").value,
         title: form.querySelector("#title").value,
         description: form.querySelector("#description").value,
-        category: form.querySelector("#category").value,
+        category: document.querySelector("#category").value,
         forSale: form.querySelector("#forSale").checked,
         image: image
         };
 
-        if (imageFile) {
-            const image = await base64(imageFile);
-            updatedArtwork.image = image;
-        }
-        updatedArtwork.forSale = form.querySelector("#forSale").checked;
     
     await fetch(URL + "/" + id, {
         method: "PUT",
@@ -103,7 +109,7 @@ document.querySelector("#result").innerHTML = `
         body: JSON.stringify(updatedArtwork),
     });
     
-    alert("Artwork is edited, please select another Artwork")
+    // alert("Artwork is edited, please select another Artwork")
     
     location.reload();
 }
