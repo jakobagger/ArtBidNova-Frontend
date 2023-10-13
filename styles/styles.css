@@ -11,11 +11,27 @@ body {
   background-attachment: fixed; 
 }
 
+#login-template, #signup-template {
+  width: 100%;
+  max-width: 25vw;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+#auctions-table, #artworks-template, #add-artwork-template, #add-auction-template, #edit-artwork-template, #find-artwork-template {
+  width: 100%;
+  max-width: 60vw;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
 .row label {
     margin-top: 1.5em;
     vertical-align: middle;
     text-align: right;
-  }
+}
   
 .row input {
   margin-top: 1em;
@@ -23,14 +39,6 @@ body {
   border-radius: 4px;
   width:100%;
   border: 1px solid lightgray;
-}
-  
-.template {
-  width: 100%;
-  max-width: 60vw;
-  margin: auto;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,1);
 }
 
 .template h2 {
