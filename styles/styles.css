@@ -19,7 +19,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,1);
 }
 
-#auctions-table, #add-artwork-template, #add-auction-template, #edit-artwork-template, #find-artwork-template {
+#auctions-table, #artworks-template, #add-artwork-template, #add-auction-template, #edit-artwork-template, #find-artwork-template {
   width: 100%;
   max-width: 60vw;
   margin: auto;
