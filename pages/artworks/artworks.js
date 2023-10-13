@@ -48,15 +48,14 @@ async function showArtworkDetails(event) {
 }
 
 async function findByCategory() {
-    // Get the selected category from the dropdown
+    
     const dropdown = document.getElementById("dropdown");
     const selectedCategory = dropdown.value;
 
     try {
-        // Fetch artworks from the server
+     
         const artworks = await fetch(URL).then((res) => res.json());
 
-        // Filter artworks by the selected category
         const filteredArtworks = artworks.filter((artwork) => 
             artwork.category.toLowerCase() === selectedCategory.toLowerCase());
         console.log(JSON.stringify(artworks))
