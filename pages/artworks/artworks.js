@@ -8,7 +8,7 @@ export async function initArtworks() {
 
     document.querySelector("#search-btn").addEventListener("click", findByCategory);
 
-    document.querySelector("#tablerows").onclick = showArtworkDetails
+    document.querySelector("#tbl-body").onclick = showArtworkDetails
     getAndRenderArtworks()
 }
 async function getAndRenderArtworks() {
@@ -23,7 +23,7 @@ async function getAndRenderArtworks() {
 function renderArtworkData(data) {
     const tableRows = data.map(artwork => `
     <tr>
-    <td><img class="art-image" id="image_${artwork.artworkId}" src="${artwork.image}"/></td>
+    <td><img class="art-image-btn" id="image-btn_${artwork.artworkId}" src="${artwork.image}"/></td>
     <td>${artwork.title}</td>
     <td>${artwork.description}</td>
     <td>${artwork.category}</td>
@@ -33,15 +33,16 @@ function renderArtworkData(data) {
 
     const tableRowsAsString = tableRows.join("")
 
-    document.querySelector("#tablerows").innerHTML = sanitizeStringWithTableRows(tableRowsAsString)
+    document.querySelector("#tbl-body").innerHTML =
+    sanitizeStringWithTableRows(tableRowsAsString)
 }
 
 async function showArtworkDetails(event) {
     const target = event.target
-    if (!target.id.startsWith("image_")) {
+    if (!target.id.startsWith("image-btn_")) {
         return
       }
-      const id = target.id.replace("image_", "")
+      const id = target.id.replace("image-btn_", "")
       // @ts-ignore
       window.router.navigate("find-artwork?id=" + id)
 }
