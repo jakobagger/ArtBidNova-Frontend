@@ -92,9 +92,9 @@ window.addEventListener("load", async () => {
         renderHtml(templateLogin, "content")
         initLogin()
       },
-      "/add-Review": (match) => {
+      "/add-review": () => {
         renderHtml(templateAddReview, "content")
-        initAddReview(match)
+        initAddReview()
       },
     })
     .notFound(() => {

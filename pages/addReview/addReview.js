@@ -1,9 +1,10 @@
 import { API_URL } from "../../settings.js";
 const URL = API_URL + "/review"
 
-export async function initAddReview(match) {
+export async function initAddReview() {
 
-    const id = match.params.id
+    const hash = window.location.hash
+    const id = hash.substring(hash.length-1)
     document.querySelector("#submit-review").addEventListener("click", function() {addReview(id)})
 
 }
