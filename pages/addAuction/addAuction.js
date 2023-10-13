@@ -16,7 +16,7 @@ async function addAuction() {
             startBid: form.startBid.value,
             minimumIncrement: form.minimumIncrement.value
           };
-
+  
           const options = {
             method: "POST",
             headers: {
@@ -24,7 +24,7 @@ async function addAuction() {
             },
             body: JSON.stringify(newAuction),
           };
-
+  
           try {
             const auction = await fetch(URL, options).then((res) => {
               if (!res.ok) {
@@ -32,7 +32,7 @@ async function addAuction() {
               }
               return res.json();
             });
-
+  
             document.querySelector("#result").innerText = JSON.stringify(
               auction,
               null,
