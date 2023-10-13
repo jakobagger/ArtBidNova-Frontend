@@ -1,0 +1,33 @@
+<div class="template">
+
+    <div class="container">
+        <h2>New auction:</h2>
+        <form id="add-bid-form">
+            <div class="form-group">
+                <label for="auctionId">Auction ID</label>
+                <input type="text" class="form-control" id="auctionId" name="auctionId" readonly>
+            </div>
+            <div class="form-group">
+                <label for="currentBid">Auctions current highest bid</label>
+                <input type="text" class="form-control" id="currentBid" name="currentBid" readonly>
+            </div>
+            <div class="form-group">
+                <label for="minimumIncrement">Minimum Increment</label>
+                <input type="text" class="form-control" id="minimumIncrement" name="minimumIncrement" readonly>
+            </div>
+            <div class="form-group">
+                <label for="newBid">Enter your bid here</label>
+                <input type="text" class="form-control" id="newBid" name="newBid">
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary" id="add-bid-btn">Submit</button>
+    </div>
+
+    <p id="result"></p>
+    <p id="error" style="color: red"></p>
+    
+</div>
