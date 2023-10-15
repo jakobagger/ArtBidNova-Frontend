@@ -28,6 +28,11 @@ async function signUp(){
     const response = await fetch(`${API_URL}/members`, {
       method: "POST",
       headers: {
+        "Accept": "*/*",
+        "Access-Control-Request-Headers":
+        "content-type",
+        "Access-Control-Request-Method":
+        "POST",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)

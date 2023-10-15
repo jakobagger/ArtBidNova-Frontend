@@ -51,7 +51,7 @@ async function findByCategory() {
     
     const dropdown = document.getElementById("dropdown");
     const selectedCategory = dropdown.value;
-
+    
     try {
      
         const artworks = await fetch(URL).then((res) => res.json());
@@ -60,7 +60,7 @@ async function findByCategory() {
             artwork.category.toLowerCase() === selectedCategory.toLowerCase());
         console.log(JSON.stringify(artworks))
         console.log(JSON.stringify(filteredArtworks))
-        document.querySelector("#tablerows").innerHTML = ("")
+        document.querySelector("#tbl-body").innerHTML = ("")
         // Render the filtered data
         renderArtworkData(filteredArtworks);
     } catch (e) {
