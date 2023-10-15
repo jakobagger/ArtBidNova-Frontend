@@ -1,6 +1,6 @@
 import { API_URL } from "../../settings.js";
 import { sanitizeStringWithTableRows } from "../../utils.js";
-const URL = API_URL + "/artwork/";
+const URL = API_URL + "/artwork";
 
 export async function initaddArtwork() {
   document.querySelector("#add-art-btn").addEventListener("click", addArtwork);
